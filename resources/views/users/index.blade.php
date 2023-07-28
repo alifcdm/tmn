@@ -35,7 +35,7 @@
                         <tr>
                             <th class="text-center">No</th>
                             <th>Fullname</th>
-                            <th>Username</th>
+                            <th>NIP</th>
                             <th>Role</th>
                             <th class="text-center">Opsi</th>
                         </tr>
@@ -45,7 +45,7 @@
                             <tr>
                                 <th scope="row" class="text-center">{{ ++$i }}</th>
                                 <td>{{ $user->fullname }}</td>
-                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->nip }}</td>
                                 <td>{{ $user->role }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">

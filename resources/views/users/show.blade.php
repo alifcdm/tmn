@@ -21,7 +21,7 @@
                             <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}"><i
                                     class="bi bi-pencil-square pe-2"></i>Edit</a>
 
-                            <a class="btn btn-primary" href="{{ url('/home') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ url('/dashboard') }}"> Back</a>
                         </div>
                     </div>
                     <div class="card mb-4">

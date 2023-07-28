@@ -38,22 +38,21 @@
                             maxlength="5">
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 my-1">
-                    <div class="form-group">
-                        <label for="role" class="form-label">Role: </label>
-                        <select class="form-select" id="role" aria-label="Default select example" name="role"
-                            aria-placeholder="{{ $user->role }}">
-                            <option value="admin">Admin</option>
-                            <option value="staff">Staff</option>
-                        </select>
+                @if (Auth::user()->role == 'admin')
+                    <div class="col-xs-12 col-sm-12 col-md-12 my-1">
+                        <div class="form-group">
+                            <label for="role" class="form-label">Role: </label>
+                            <select class="form-select" id="role" aria-label="Default select example" name="role">
+                                <option selected>Select the role</option>
+                                <option value="admin">Admin</option>
+                                <option value="staff">Staff</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 my-1">
-                    <div class="form-group">
-                        <label for="fullname" class="form-label"><strong>Fullname: </strong></label>
-                        <input type="text" name="fullname" class="form-control" value="{{ $user->fullname }}">
-                    </div>
-                </div>
+                @endif
+                @if (Auth::user()->role !== 'admin')
+                    <input type="hidden" value="{{ $user->role }}" name="role" class="form-control">
+                @endif
                 <div class="col-xs-12 col-sm-12 col-md-12 my-1">
                     <div class="form-group">
                         <label for="email" class="form-label"><strong>Email: </strong></label>
@@ -83,8 +82,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center my-4">
                 <button type="submit" class="btn btn-success" name="proses">Update</button>
-
-                <a href="{{ url('home') }}" class="btn btn-success">Batal</a>
+                <a href="{{ url('/dashboard') }}" class="btn btn-success">Batal</a>
             </div>
         </div>
         </div>

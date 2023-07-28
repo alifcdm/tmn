@@ -139,7 +139,10 @@ class AbsensiController extends Controller
      */
     public function destroy(Absensi $absensi)
     {
-        //
+        $absensi->delete();
+
+        return redirect()->route('users.index')
+            ->with('success', 'Users deleted successfully');
     }
 
     public function absensiExcel()

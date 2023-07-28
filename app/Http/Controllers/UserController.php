@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ResponseFormatter;
 use App\Models\User;
+use App\Models\Absensi;
 use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
@@ -59,7 +60,6 @@ class UserController extends Controller
             return redirect()->route('dashboard')
                 ->with('success', 'Users Created successfully!');
         } catch (\Exception $e) {
-            //return redirect()->back()
             return redirect()->back()
                 ->with('error', 'Error during the creation!');
         }
@@ -112,8 +112,7 @@ class UserController extends Controller
 
         try {
             $user->update($validatedData);
-            //return redirect()->back()
-            return redirect()->route('users.index')
+            return redirect()->route('dashboard')
                 ->with('success', 'Users updated successfully');
         } catch (\Exception $e) {
             return redirect()->back()
@@ -129,11 +128,18 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //--------hapus dulu fisik file foto--------
-        $user->delete();
+        // //--------hapus dulu fisik file foto--------
 
-        return redirect()->route('users.index')
-            ->with('success', 'Users deleted successfully');
+        try {
+            $user->delete();
+
+            return redirect()->route('users.index')
+                ->with('success', 'Users deleted successfully');
+        } catch (\Exception $e) {
+            //return redirect()->back()
+            return redirect()->route('users.index')
+                ->with('error', 'Error during the creation!');
+        }
     }
 
     public function usersExcel()
