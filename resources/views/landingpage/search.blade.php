@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
     <ul class="navbar-nav flex-row align-items-center ms-auto">
         <!-- User -->
@@ -12,17 +11,6 @@
                 <li>
                     <a class="dropdown-item" href="{{ route('login') }}">
                         <div class="d-flex">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="avatar avatar-online">
-                                    @if (Auth::user() !== null)
-                                        <img src="{{ asset('assets/img/avatars/' . Auth::user()->foto) }}"
-                                            style="max-height: 40px;" alt class="w-px-40 h-auto rounded-circle" />
-                                    @else
-                                        <img src="{{ asset('assets/img/avatars/avatar.png') }}" width="50px"
-                                            height="50px" alt class="w-px-40 h-auto rounded-circle" />
-                                    @endif
-                                </div>
-                            </div>
                             <div class="flex-grow-1">
                                 @if (Auth::user() !== null)
                                     <span class="fw-semibold d-block mt-2">{{ Auth::user()->fullname }}</span>

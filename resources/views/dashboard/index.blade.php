@@ -5,30 +5,15 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Bar chart</h4>
+                        <h4 class="card-title">Absensi Chart</h4>
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-
-    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
-    <!-- endbuild -->
-
-    <!-- Main JS -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-
-    <!-- Page JS -->
-    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
-
+@endsection
+@section('js')
     <!-- Plugin js for this page -->
     <script src="{{ asset('assets/vendor/chart.js/Chart.min.js') }}"></script>
 

@@ -9,19 +9,20 @@
                         <!-- Register -->
                         <div class="card">
                             <div class="card-body">
+                                <h1>{{ session('success') }}</h1>
                                 <h4 class="mb-2 text-center">Welcome to TMN <span><img
                                             src="{{ asset('assets/img/avatars/logo.png') }}" width="40"
                                             alt=""></span>
                                 </h4>
                                 <p class="mb-4">Please sign-in to your account and start the adventure</p>
-
                                 <form id="formAuthentication" class="mb-3" action="{{ route('login.post') }}"
                                     method="POST">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="nip" class="form-label">NIP</label>
                                         <input type="text" class="form-control @error('nip') is-invalid @enderror"
-                                            id="nip" name="nip" placeholder="Enter your nip" autofocus required />
+                                            id="nip" name="nip" placeholder="Enter your nip" maxlength="5"
+                                            autofocus required />
                                         @error('nip')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

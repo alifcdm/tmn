@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AbsensiController;
+use App\Models\Absensi;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::get('registration', [AuthController::class, 'registration'])->name('regis
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
 // routing url untuk mengunduh data user dalam format EXCEL
 Route::get('users-excel', [UserController::class, 'usersExcel']);
+Route::get('absensi-excel', [AbsensiController::class, 'absensiExcel']);
 // Absensi
 Route::get('/absensi/{nama}', [AbsensiController::class, 'index']);
 Route::post('absensi/store', [AbsensiController::class, 'store']);

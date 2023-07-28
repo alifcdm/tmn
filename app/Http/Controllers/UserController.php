@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ResponseFormatter;
 use App\Models\User;
-use App\Models\Absensi;
 use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
+
 
 class UserController extends Controller
 {
@@ -19,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(100);
+        $users = DB::table('users')->where('deleted_at', null)->get();
         return view('users.index', compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * 100);
     }
@@ -130,8 +132,10 @@ class UserController extends Controller
     {
         // //--------hapus dulu fisik file foto--------
 
+        $deleted_at = Carbon::parse(date('Y-m-d H:i:s'), config()->get("app.timezone"))->timezone("Asia/Jakarta")->toDateTimeString();
         try {
-            $user->delete();
+            $user->deleted_at = $deleted_at;
+            $user->save();
 
             return redirect()->route('users.index')
                 ->with('success', 'Users deleted successfully');

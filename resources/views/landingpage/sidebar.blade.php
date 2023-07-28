@@ -45,18 +45,13 @@
                     <div data-i18n="Analytics">Data User</div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a class="menu-link" href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="menu-icon tf-icons bx bx-power-off me-2"></i>
-                    <span class="align-middle">Log Out</span>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </a>
-            </li>
-            <!-- Components -->
         @endif
+        <li class="menu-item">
+            <a class="menu-link" href="{{ route('logout') }}">
+                <i class="menu-icon tf-icons bx bx-power-off me-2"></i>
+                <span class="align-middle">Log Out</span>
+            </a>
+        </li>
+        <!-- Components -->
     </ul>
 </aside>

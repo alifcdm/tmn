@@ -5,7 +5,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    @if ($isAbsen == null)
+    @if ($isAbsen == null && Auth::user()->role !== 'admin')
         <div class="container-xxl flex-grow-1 container-p-y">
             <div class="row">
             </div>
@@ -57,9 +57,6 @@
                             <th>Status</th>
                             <th>Clock_in</th>
                             <th>Clock_out</th>
-                            @if (Auth::user()->role !== 'staff')
-                                <th>Opsi</th>
-                            @endif
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">

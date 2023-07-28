@@ -56,13 +56,8 @@
 
                                         @csrf
                                         @method('DELETE')
-
                                         <button type="submit" class="btn btn-danger"><i
                                                 class="bi bi-trash3 pe-2"></i>Delete</button>
-
-                                        {{-- <a href="/users-delete/{{ $user->id }}"
-                                            class="btn btn-danger btn-sm delete-confirm" role="button"> Delete <i
-                                                class="typcn typcn-delete-outline btn-icon-append"></i> </a> --}}
                                     </form>
                                 </td>
                             </tr>

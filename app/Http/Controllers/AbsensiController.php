@@ -21,9 +21,14 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-
-        $absensi = Absensi::where('user_id', Auth::user()->id)->latest()->get();
-        $isAbsen = Absensi::where('user_id', Auth::user()->id)->whereDate('created_at', date('Y-m-d'))->first();
+        if (Auth::user()->role == 'admin') {
+            $a = Absensi::all();
+            $absensi = $a->where('user.deleted_at', null);
+            $isAbsen = Absensi::where('user_id', Auth::user()->id)->whereDate('created_at', date('Y-m-d'))->first();
+        } else {
+            $absensi = Absensi::where('user_id', Auth::user()->id)->latest()->get();
+            $isAbsen = Absensi::where('user_id', Auth::user()->id)->whereDate('created_at', date('Y-m-d'))->first();
+        }
 
         return view('absensi.index', [
             'absensi' => $absensi,

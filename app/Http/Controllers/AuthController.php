@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Absensi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -38,7 +39,7 @@ class AuthController extends Controller
                 ->withSuccess('You have Successfully loggedin');
         }
         //create token as plaintexttoken
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect('/')->withSuccess('Oppes! You have entered invalid credentials');
     }
 
     /**
@@ -49,7 +50,7 @@ class AuthController extends Controller
     public function dashboard()
     {
         $absensi = Absensi::all();
-        $a = $absensi->groupBy("user.fullname");
+        $a = $absensi->where('user.deleted_at', null)->groupBy("user.fullname");
         $finalData = [];
         $finalValue = [];
 
