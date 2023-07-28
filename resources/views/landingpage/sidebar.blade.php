@@ -4,7 +4,7 @@
             <span class="app-brand-logo demo">
                 <img width="50" src="{{ asset('assets/img/avatars/logo.png') }}" alt="">
             </span>
-            <span class="app-brand-text menu-text fw-bolder ms-2" style="font-size: 40px;">LMS
+            <span class="app-brand-text menu-text fw-bolder ms-2" style="font-size: 40px;">TMN
             </span>
         </a>
 

@@ -9,7 +9,7 @@
                         <!-- Register -->
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="mb-2 text-center">Welcome to LMS <span><img
+                                <h4 class="mb-2 text-center">Welcome to TMN <span><img
                                             src="{{ asset('assets/img/avatars/logo.png') }}" width="40"
                                             alt=""></span>
                                 </h4>
