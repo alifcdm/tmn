@@ -38,7 +38,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 my-1">
                     <div class="form-group">
                         <label for="nip" class="form-label"><strong>NIP: </strong></label>
-                        <input type="text" name="nip" class="form-control" placeholder="10001">
+                        <input type="text" name="nip" class="form-control" placeholder="10001" maxlength="5">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 my-1">

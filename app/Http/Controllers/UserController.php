@@ -56,7 +56,7 @@ class UserController extends Controller
         try {
             User::create($validatedData);
             //return redirect()->back()
-            return redirect()->route('users.index')
+            return redirect()->route('dashboard')
                 ->with('success', 'Users Created successfully!');
         } catch (\Exception $e) {
             //return redirect()->back()

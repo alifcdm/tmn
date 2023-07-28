@@ -78,23 +78,6 @@
                                                 class="bi bi-pencil-square"></i>Clock Out</a>
                                     </td>
                                 @endif
-                                @if (Auth::user()->role !== 'staff')
-                                    <td class="text-center">
-                                        <form action="{{ route('users.destroy', $absen->id) }}" method="POST">
-                                            <a class="btn btn-primary" href="{{ route('users.edit', $absen->id) }}"><i
-                                                    class="bi bi-pencil-square"></i>Edit</a>
-
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger delete-confirm"><i
-                                                    class="bi bi-trash3"></i>Delete</button>
-
-                                            {{-- <a href="/users-delete/{{ $user->id }}"
-                                            class="btn btn-danger btn-sm delete-confirm" role="button"> Delete <i
-                                                class="typcn typcn-delete-outline btn-icon-append"></i> </a> --}}
-                                        </form>
-                                    </td>
-                                @endif
                             </tr>
                         @endforeach
                     </tbody>

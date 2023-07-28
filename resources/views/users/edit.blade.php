@@ -33,6 +33,13 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 my-1">
                     <div class="form-group">
+                        <label for="nip" class="form-label"><strong>NIP: </strong></label>
+                        <input type="text" value="{{ $user->nip }}" name="nip" class="form-control"
+                            maxlength="5">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 my-1">
+                    <div class="form-group">
                         <label for="role" class="form-label">Role: </label>
                         <select class="form-select" id="role" aria-label="Default select example" name="role"
                             aria-placeholder="{{ $user->role }}">

@@ -18,7 +18,7 @@ use App\Http\Controllers\AbsensiController;
 
 // This route is only accessible by users with the 'admin' role.
 Route::middleware(['auth'])->group(function () {
-    Route::resource('users', UserController::class)->middleware('admin:admin');
+    Route::resource('users', UserController::class);
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
 Route::get('dashboard', [AuthController::class, 'dashboard']);
